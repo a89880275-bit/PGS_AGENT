@@ -1,0 +1,5 @@
+{
+  "name": "@pgs/shared",
+  "private": true,
+  "type": "module"
+}

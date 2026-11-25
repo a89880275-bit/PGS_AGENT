@@ -1,0 +1,16 @@
+<service>
+  <id>PGSAgentLocal</id>
+  <name>PGS Local Transfer Agent</name>
+  <description>Local synthetic PGS worker and relay launcher.</description>
+  <executable>%BASE%\node.exe</executable>
+  <arguments>--env-file-if-exists=.env scripts/phase2.mjs --phase4</arguments>
+  <workingdirectory>%BASE%</workingdirectory>
+  <startmode>Automatic</startmode>
+  <stoptimeout>30 sec</stoptimeout>
+  <onfailure action="restart" delay="10 sec"/>
+  <onfailure action="restart" delay="30 sec"/>
+  <logpath>%BASE%\.local\phase4\service-logs</logpath>
+  <log mode="roll-by-size-time">
+    <sizeThreshold>10240</sizeThreshold><pattern>yyyyMMdd</pattern><autoRollAtTime>00:00:00</autoRollAtTime>
+  </log>
+</service>
